@@ -7,10 +7,10 @@ public class Options {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
-    @Column(name = "OPTIONS_ID")
+    @Column(name = "OPTION_ID")
     private Long id;
 
-    @Column(name = "OPTIONS_VALUE")
+    @Column(name = "OPTION_VALUE")
     private String value;
 
     public Long getId() {

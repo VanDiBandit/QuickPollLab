@@ -8,7 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
-
+@RestController
 public class VoteController {
     @Autowired
     private VoteRepository voteRepository;
@@ -25,5 +25,10 @@ public class VoteController {
 
             return new ResponseEntity<>(null, responseHeaders, HttpStatus.CREATED);
         }
-    }
 
+    //@RequestMapping(value="/polls/{pollId}/votes", method=RequestMethod.GET)
+    @GetMapping("/polls/{pollId}/votes")
+    public Iterable<Vote> getAllVotes(@PathVariable Long pollId) {
+        return voteRepository.findByPoll(pollId);
+    }
+}
